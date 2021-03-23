@@ -45,8 +45,8 @@ const only = role_name => (req, res, next) => {
 
     Pull the decoded token from the req object, to avoid verifying it again!
   */
- if (req.decodedJwt !== role_name) {
-   res.status(403).json({ message: 'Thi is not for you' });
+ if (req.decodedJwt.role_name !== role_name) {
+   res.status(403).json({ message: 'this is not for you' });
  } else {
    next();
  }
